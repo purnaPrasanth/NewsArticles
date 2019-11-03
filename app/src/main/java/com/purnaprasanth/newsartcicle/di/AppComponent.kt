@@ -14,7 +14,11 @@ import javax.inject.Singleton
 @Singleton
 @Component(
     modules = [
-        AndroidSupportInjectionModule::class
+        AndroidSupportInjectionModule::class,
+        ActivityModule::class,
+        AppModule::class,
+        ExecutorModule::class,
+        ViewModelModule::class
     ]
 )
 interface AppComponent : AndroidInjector<NewsArticlesApplication> {
