@@ -1,0 +1,2 @@
+include ':app', ':base', ':baseandroid', ':data'
+rootProject.name='News Artcicle'
