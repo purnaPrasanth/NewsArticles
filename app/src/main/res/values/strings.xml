@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">News Artcicle</string>
+    <string name="artcicles_list_fragment">Artcicles List Fragment</string>
 </resources>

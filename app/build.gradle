@@ -27,14 +27,31 @@ android {
     dataBinding {
         enabled true
     }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation project(":baseandroid")
 
-    kapt("com.google.dagger:dagger-compiler:2.24")
-    kapt("com.google.dagger:dagger-android-processor:2.24")
+    kapt(deps.dagger.compiler)
+    kapt(deps.dagger.android_support_compiler)
+
+    implementation(deps.okhttp.logging_interceptor)
+    implementation(deps.retrofit.adapter_rxjava)
+    implementation(deps.retrofit.gson)
+    implementation(deps.retrofit.runtime)
+
+    implementation(deps.rx.android)
+    implementation(deps.rx.bindings)
+    implementation(deps.rx.java)
+    implementation(deps.rx.replaying_share)
+
+    kapt(deps.lifecycle.compiler)
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
