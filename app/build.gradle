@@ -6,13 +6,16 @@ apply plugin: 'kotlin-android-extensions'
 
 apply plugin: 'kotlin-kapt'
 
+import com.purnaprasanth.buildSrc.Libs
+import com.purnaprasanth.buildSrc.Versions
+
 android {
-    compileSdkVersion 29
-    buildToolsVersion "29.0.2"
+    compileSdkVersion Versions.compileSdk
+    buildToolsVersion Versions.buildTools
     defaultConfig {
         applicationId "com.purnaprasanth.newsartcicle"
-        minSdkVersion 19
-        targetSdkVersion 29
+        minSdkVersion Versions.minSdk
+        targetSdkVersion Versions.targetSdk
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -40,25 +43,23 @@ dependencies {
     implementation project(":data")
     implementation project(":articles")
 
-    kapt(deps.dagger.compiler)
-    kapt(deps.dagger.android_support_compiler)
+    kapt(Libs.Dagger.compiler)
+    kapt(Libs.Dagger.androidSupportCompiler)
 
-    implementation(deps.okhttp.logging_interceptor)
-    implementation(deps.retrofit.adapter_rxjava)
-    implementation(deps.retrofit.gson)
-    implementation(deps.retrofit.runtime)
+    implementation(Libs.OkHttp.loggingInterceptor)
+    implementation(Libs.Retrofit.rxJavaAdapter)
+    implementation(Libs.Retrofit.gson)
+    implementation(Libs.Retrofit.core)
 
-    implementation(deps.rx.android)
-    implementation(deps.rx.bindings)
-    implementation(deps.rx.java)
-    implementation(deps.rx.replaying_share)
+    implementation(Libs.RxJava.android)
+    implementation(Libs.RxJava.java)
 
-    kapt(deps.lifecycle.compiler)
+    kapt(Libs.LifeCycle.compiler)
 
-    implementation(deps.navigation.fragment)
-    implementation(deps.navigation.ui)
+    implementation(Libs.Navigation.fragment)
+    implementation(Libs.Navigation.ui)
 
-    testImplementation(deps.junit)
-    androidTestImplementation(deps.atsl.junit)
-    androidTestImplementation(deps.espresso.core)
+    testImplementation(Libs.Junit.jUnit)
+    androidTestImplementation(Libs.Junit.atslJunit)
+    androidTestImplementation(Libs.Espresso.core)
 }

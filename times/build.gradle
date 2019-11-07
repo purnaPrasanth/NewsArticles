@@ -4,17 +4,19 @@ apply plugin: 'kotlin'
 
 apply plugin: 'kotlin-kapt'
 
+import com.purnaprasanth.buildSrc.Libs
+
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     implementation project(":base")
 
-    kapt(deps.dagger.compiler)
+    kapt(Libs.Dagger.compiler)
 
-    implementation(deps.okhttp.logging_interceptor)
-    implementation(deps.retrofit.adapter_rxjava)
-    implementation(deps.retrofit.gson)
-    implementation(deps.retrofit.runtime)
+    implementation(Libs.OkHttp.loggingInterceptor)
+    implementation(Libs.Retrofit.rxJavaAdapter)
+    implementation(Libs.Retrofit.gson)
+    implementation(Libs.Retrofit.core)
 }
 
 sourceCompatibility = "7"

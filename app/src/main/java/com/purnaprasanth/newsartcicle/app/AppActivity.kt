@@ -13,7 +13,7 @@ class AppActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
         get() = "AppActivity"
 
     override fun initUI() {
-        navController = findNavController(R.id.nav_host_fragment)
-        navController.navigate(R.id.navigate_to_article_detail)
+//        navController = findNavController(R.id.nav_host_fragment)
+//        navController.navigate(R.id.navigate_to_article_detail)
     }
 }
