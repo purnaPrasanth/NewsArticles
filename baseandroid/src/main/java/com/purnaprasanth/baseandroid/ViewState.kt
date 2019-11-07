@@ -1,6 +1,5 @@
 package com.purnaprasanth.baseandroid
 
-
 /**
  * Created by viking_93 on 2019-11-03
  **/

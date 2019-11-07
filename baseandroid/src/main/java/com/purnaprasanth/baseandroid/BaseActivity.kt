@@ -4,14 +4,10 @@ import android.os.Bundle
 import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
-import com.purnaprasanth.base.AppDispatchers
+import com.purnaprasanth.base.AppRxSchedulers
 import dagger.android.AndroidInjection
 import dagger.android.support.DaggerAppCompatActivity
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.SupervisorJob
-import java.util.concurrent.CancellationException
 import javax.inject.Inject
-import kotlin.coroutines.CoroutineContext
 
 /**
  * Created by viking_93 on 2019-11-03
@@ -29,21 +25,16 @@ import kotlin.coroutines.CoroutineContext
  */
 
 abstract class BaseActivity<BINDING : ViewDataBinding>(@LayoutRes val layoutId: Int) :
-    DaggerAppCompatActivity(), CoroutineScope {
+    DaggerAppCompatActivity() {
     protected lateinit var binding: BINDING
-
-    private val parentJob = SupervisorJob()
 
     protected abstract val TAG: String
 
     @Inject
-    lateinit var dispatchers: AppDispatchers
-
-    @Inject
     lateinit var viewModelFactory: ViewModelFactory
 
-    override val coroutineContext: CoroutineContext
-        get() = dispatchers.mainDispatcher + parentJob
+    @Inject
+    lateinit var appRxSchedulers: AppRxSchedulers
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -55,7 +46,6 @@ abstract class BaseActivity<BINDING : ViewDataBinding>(@LayoutRes val layoutId: 
 
     override fun onDestroy() {
         super.onDestroy()
-        parentJob.cancel(cause = CancellationException("Parent Scope Destroyed"))
     }
 
     abstract fun initUI()

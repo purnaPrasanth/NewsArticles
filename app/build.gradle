@@ -37,6 +37,8 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation project(":baseandroid")
+    implementation project(":data")
+    implementation project(":articles")
 
     kapt(deps.dagger.compiler)
     kapt(deps.dagger.android_support_compiler)
@@ -53,7 +55,10 @@ dependencies {
 
     kapt(deps.lifecycle.compiler)
 
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    implementation(deps.navigation.fragment)
+    implementation(deps.navigation.ui)
+
+    testImplementation(deps.junit)
+    androidTestImplementation(deps.atsl.junit)
+    androidTestImplementation(deps.espresso.core)
 }

@@ -1,2 +1,2 @@
-include ':app', ':base', ':baseandroid', ':data'
+include ':app', ':base', ':baseandroid', ':data', ':times', ':articles'
 rootProject.name='News Artcicle'

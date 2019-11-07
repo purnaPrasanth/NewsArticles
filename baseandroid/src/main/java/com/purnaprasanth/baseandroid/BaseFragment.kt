@@ -8,34 +8,27 @@ import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.ViewModelProvider
-import com.purnaprasanth.base.AppDispatchers
+import com.purnaprasanth.base.AppRxSchedulers
 import dagger.android.support.DaggerFragment
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.SupervisorJob
 import javax.inject.Inject
-import kotlin.coroutines.CoroutineContext
 
 /**
  * Created by viking_93 on 2019-11-03
  **/
 
 abstract class BaseFragment<BINDING : ViewDataBinding>(@LayoutRes val layId: Int) :
-    DaggerFragment(), CoroutineScope {
+    DaggerFragment() {
 
     private lateinit var _binding: BINDING
 
     protected val binding: BINDING
         get() = _binding
 
-    private val job = SupervisorJob()
-    override val coroutineContext: CoroutineContext
-        get() = job + appDispatchers.mainDispatcher
-
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
 
     @Inject
-    lateinit var appDispatchers: AppDispatchers
+    lateinit var appRxSchedulers: AppRxSchedulers
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -46,11 +39,6 @@ abstract class BaseFragment<BINDING : ViewDataBinding>(@LayoutRes val layId: Int
         _binding.lifecycleOwner = this
         initUI()
         return binding.root
-    }
-
-    override fun onDetach() {
-        super.onDetach()
-        job.cancel()
     }
 
     abstract fun initUI()

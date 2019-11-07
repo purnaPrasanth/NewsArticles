@@ -1,16 +1,16 @@
 package com.purnaprasanth.newsartcicle.app
 
-import android.app.Application
-import com.purnaprasanth.base.AppDispatchers
-import com.purnaprasanth.baseandroid.BaseViewModel
+import androidx.lifecycle.ViewModel
+import com.purnaprasanth.base.AppRxSchedulers
 import javax.inject.Inject
 
 /**
  * Created by purna on 2019-11-03
  **/
 
-class AppViewModel @Inject constructor(application: Application, appDispatchers: AppDispatchers) :
-    BaseViewModel(application, appDispatchers) {
+class AppViewModel @Inject constructor(
+    private val appRxSchedulers: AppRxSchedulers
+) : ViewModel() {
     private val TAG = "AppViewModel"
 
 

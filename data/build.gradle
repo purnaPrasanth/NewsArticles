@@ -1,6 +1,9 @@
 apply plugin: 'com.android.library'
+
 apply plugin: 'kotlin-android'
+
 apply plugin: 'kotlin-android-extensions'
+
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.2"
@@ -22,14 +25,19 @@ android {
         }
     }
 
+    androidExtensions {
+        experimental = true
+    }
+
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation deps.kotlin.stdlib
-    implementation 'androidx.appcompat:appcompat:1.1.0'
-    implementation 'androidx.core:core-ktx:1.1.0'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+    implementation project(":baseandroid")
+    implementation project(":times")
+
+    testImplementation(deps.junit)
+    androidTestImplementation(deps.atsl.junit)
+    androidTestImplementation(deps.espresso.core)
 }

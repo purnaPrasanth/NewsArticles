@@ -2,11 +2,10 @@ package com.purnaprasanth.newsartcicle.di
 
 import android.app.Application
 import android.content.Context
-import com.purnaprasanth.baseandroid.annotation.App
+import com.purnaprasanth.base.annotation.App
 import com.purnaprasanth.newsartcicle.NewsArticlesApplication
 import dagger.Binds
 import dagger.Module
-
 
 /**
  * Created by purna on 2019-11-03

@@ -38,6 +38,8 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     api(project(":base"))
 
+    api(deps.rx.android)
+
     kapt(deps.dagger.compiler)
     api(deps.dagger.runtime)
     api(deps.dagger.android)
@@ -51,7 +53,7 @@ dependencies {
     api(deps.lifecycle.extensions)
     api(deps.lifecycle.runtime)
 
-    testImplementation("junit:junit:4.12")
-    androidTestImplementation("androidx.test.ext:junit:1.1.1")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.2.0")
+    testImplementation(deps.junit)
+    androidTestImplementation(deps.atsl.junit)
+    androidTestImplementation(deps.espresso.core)
 }
