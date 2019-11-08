@@ -1,11 +1,61 @@
 <resources>
 
-    <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="BaseTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textAppearance">@style/AppTheme.Text</item>
+        <item name="android:textAppearanceSmall">@style/AppTheme.Text.Small</item>
+        <item name="android:textAppearanceMedium">@style/AppTheme.Text.Medium</item>
+        <item name="android:textAppearanceLarge">@style/AppTheme.Text.Large</item>
+        <item name="android:windowBackground">@color/windowBackground</item>
+        <item name="android:textAppearanceListItem">@style/AppTheme.Text.ListItem</item>
+        <item name="android:colorBackground">@color/white</item>
+    </style>
+
+    <style name="AppTheme" parent="BaseTheme" />
+
+    <style name="AppTheme.Text" parent="TextAppearance.AppCompat">
+        <item name="android:fontFamily">@font/roboto_medium</item>
+        <item name="android:textSize">@dimen/textSize</item>
+        <item name="android:textColor">@color/textColorPrimary</item>
+    </style>
+
+    <style name="AppTheme.Text.Small" parent="AppTheme.Text">
+        <item name="android:textSize">@dimen/textSizeSmall</item>
+    </style>
+
+    <style name="AppTheme.Text.Medium" parent="AppTheme.Text">
+        <item name="android:textSize">@dimen/textSizeBig</item>
+    </style>
+
+    <style name="AppTheme.Text.Large" parent="AppTheme.Text">
+        <item name="android:textSize">@dimen/textSizeHuge</item>
+    </style>
+
+    <style name="AppTheme.Text.Title" parent="AppTheme.Text.Large">
+        <item name="android:fontFamily">@font/quicksand_bold</item>
+    </style>
+
+    <style name="BaseTheme.Toolbar" parent="Widget.AppCompat.Toolbar">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/toolbarHeight</item>
+        <item name="android:background">@color/white</item>
+    </style>
+
+    <style name="AppTheme.Toolbar" parent="BaseTheme.Toolbar" />
+
+    <style name="BaseAppTheme.Text.ToolBarTitle" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:fontFamily">@font/quicksand_bold</item>
+        <item name="android:textSize">@dimen/textSizeHuge</item>
+        <item name="android:textColor">@color/textColorPrimary</item>
+    </style>
+
+    <style name="AppTheme.Text.ListItem" parent="TextAppearance.AppCompat">
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:textSize">@dimen/textSizeHuge</item>
+        <item name="android:textColor">@color/textColorPrimary</item>
     </style>
 
 </resources>

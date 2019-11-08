@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="AppTheme" parent="BaseTheme">
+        <item name="android:titleTextAppearance">@style/AppTheme.Text.Title</item>
+        <item name="android:toolbarStyle">@style/AppTheme.v21.Toolbar</item>
+    </style>
+
+    <style name="AppTheme.v21.Toolbar" parent="BaseTheme.Toolbar">
+        <item name="android:titleTextAppearance">@style/BaseAppTheme.Text.ToolBarTitle</item>
+    </style>
+
+</resources>

@@ -1,12 +1,11 @@
 package com.purnaprasanth.newsartcicle.app
 
 import androidx.navigation.NavController
-import androidx.navigation.findNavController
 import com.purnaprasanth.baseandroid.BaseActivity
 import com.purnaprasanth.newsartcicle.R
-import com.purnaprasanth.newsartcicle.databinding.ActivityMainBinding
+import com.purnaprasanth.newsartcicle.databinding.ActivityAppBinding
 
-class AppActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
+class AppActivity : BaseActivity<ActivityAppBinding>(R.layout.activity_app) {
 
     private lateinit var navController: NavController
     override val TAG: String
