@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout>
+
+    <data>
+
+        <variable
+            name="article"
+            type="com.purnaprasanth.newsarticles.data.model.ArticleDetail" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/parent_padding_half"
+        android:layout_marginBottom="@dimen/parent_padding_half"
+        android:background="#ffffff"
+        android:padding="@dimen/parent_padding">
+
+        <ImageView
+            android:id="@+id/article_iv"
+            android:layout_width="@dimen/d64"
+            android:layout_height="@dimen/d64"
+            android:background="#000000"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/article_name"
+            style="?android:textAppearanceListItem"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/parent_padding"
+            android:text="@{article.title}"
+            app:layout_constraintBottom_toTopOf="@id/article_author"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/article_iv"
+            app:layout_constraintTop_toTopOf="@id/article_iv"
+            app:layout_constraintVertical_chainStyle="spread" />
+
+        <TextView
+            android:id="@+id/article_author"
+            style="?android:textAppearanceListItemSmall"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/parent_padding"
+            android:layout_marginTop="@dimen/parent_padding_quarter"
+            android:text="@{article.authorName}"
+            app:layout_constraintBottom_toBottomOf="@id/article_iv"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/article_iv"
+            app:layout_constraintTop_toBottomOf="@id/article_name" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

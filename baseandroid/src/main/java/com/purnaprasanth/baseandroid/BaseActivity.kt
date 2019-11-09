@@ -7,6 +7,7 @@ import androidx.databinding.ViewDataBinding
 import com.purnaprasanth.base.AppRxSchedulers
 import dagger.android.AndroidInjection
 import dagger.android.support.DaggerAppCompatActivity
+import io.reactivex.disposables.CompositeDisposable
 import javax.inject.Inject
 
 /**
@@ -30,6 +31,8 @@ abstract class BaseActivity<BINDING : ViewDataBinding>(@LayoutRes val layoutId: 
 
     protected abstract val TAG: String
 
+    private val compositeDisposable = CompositeDisposable()
+
     @Inject
     lateinit var viewModelFactory: ViewModelFactory
 
@@ -45,6 +48,7 @@ abstract class BaseActivity<BINDING : ViewDataBinding>(@LayoutRes val layoutId: 
     }
 
     override fun onDestroy() {
+        compositeDisposable.dispose()
         super.onDestroy()
     }
 

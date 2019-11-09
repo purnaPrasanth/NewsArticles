@@ -2,6 +2,7 @@ package com.purnaprasanth.newsartcicle.di
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.purnaprasanth.articles.articles.ArticlesViewModel
 import com.purnaprasanth.baseandroid.ViewModelFactory
 import com.purnaprasanth.baseandroid.annotation.ViewModelKey
 import com.purnaprasanth.newsartcicle.app.AppViewModel
@@ -23,4 +24,9 @@ abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(AppViewModel::class)
     abstract fun provideAppViewModel(viewModel: AppViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(ArticlesViewModel::class)
+    abstract fun provideArticlesViewModel(viewModel: ArticlesViewModel): ViewModel
 }

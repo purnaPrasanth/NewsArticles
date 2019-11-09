@@ -26,3 +26,13 @@ annotation class Common
 @Qualifier
 @MustBeDocumented
 annotation class IO
+
+@Retention(AnnotationRetention.RUNTIME)
+@Qualifier
+@MustBeDocumented
+annotation class Times
+
+@Retention(AnnotationRetention.RUNTIME)
+@Qualifier
+@MustBeDocumented
+annotation class Local

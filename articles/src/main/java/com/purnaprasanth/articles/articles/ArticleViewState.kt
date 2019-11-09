@@ -10,12 +10,21 @@ import com.purnaprasanth.newsarticles.data.model.ArticleDetail
 data class ArticlesViewState(
     val isLoading: Boolean,
     val articles: List<ArticleDetail>,
-    val error: Exception?,
+    val error: Throwable?,
     val articleFilter: ArticleFiler
-) : MviViewState
+) : MviViewState {
+    companion object {
+        fun initial() = ArticlesViewState(
+            isLoading = false,
+            articles = emptyList(),
+            error = null,
+            articleFilter = ArticleFiler.Science
+        )
+    }
+}
 
 enum class ArticleFiler(val value: String) {
-    science("science"),
+    Science("science"),
     Technology("technology"),
     Business("business"),
     World("world"),

@@ -19,5 +19,5 @@ dependencies {
     implementation(Libs.Retrofit.core)
 }
 
-sourceCompatibility = "7"
-targetCompatibility = "7"
+sourceCompatibility = "8"
+targetCompatibility = "8"

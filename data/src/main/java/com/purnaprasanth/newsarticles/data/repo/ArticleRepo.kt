@@ -1,6 +1,9 @@
 package com.purnaprasanth.newsarticles.data.repo
 
+import com.purnaprasanth.base.annotation.Times
 import com.purnaprasanth.newsarticles.data.datasources.IArticleDataSource
+import com.purnaprasanth.newsarticles.data.model.ArticleDetail
+import io.reactivex.Observable
 import javax.inject.Inject
 
 /**
@@ -8,13 +11,16 @@ import javax.inject.Inject
  **/
 
 class ArticleRepo @Inject constructor(
-    private val remoteArticleDataSource: IArticleDataSource
+    @Times private val remoteArticleDataSource: IArticleDataSource,
+    @Times private val localArticleDataSource: IArticleDataSource
 ) {
     private val TAG = "ArticleRepo"
 
-    fun syncArticleList(section: String) {
-        TODO()
+    fun getArticles(section: String, fromServer: Boolean): Observable<List<ArticleDetail>> {
+        return if (fromServer) {
+            remoteArticleDataSource.getArticles(section)
+        } else {
+            localArticleDataSource.getArticles(section)
+        }
     }
-
-    fun observeArticleList(section: String) = remoteArticleDataSource.getArticles(section)
 }

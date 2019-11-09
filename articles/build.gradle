@@ -40,6 +40,9 @@ dependencies {
 
     implementation(Libs.Androidx.constraintLayout)
 
+    kapt(Libs.Dagger.compiler)
+    kapt(Libs.Dagger.androidSupportCompiler)
+
     testImplementation(Libs.Junit.jUnit)
     androidTestImplementation(Libs.Junit.atslJunit)
     androidTestImplementation(Libs.Espresso.core)

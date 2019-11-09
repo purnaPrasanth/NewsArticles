@@ -2,6 +2,14 @@ package com.purnaprasanth.baseandroid
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.ViewModel
+import com.purnaprasanth.base.AppRxSchedulers
+import com.purnaprasanth.base.mvi.MviIntent
+import com.purnaprasanth.base.mvi.MviViewModel
+import com.purnaprasanth.base.mvi.MviViewState
+import io.reactivex.Observable
+import io.reactivex.disposables.CompositeDisposable
+import io.reactivex.subjects.PublishSubject
 
 
 /**
@@ -10,12 +18,32 @@ import androidx.lifecycle.AndroidViewModel
 
 /**
  * Base Class for ViewModel
- *
- * This also extends [CoroutineScope], hence acts as a parent for all the coRoutines started in this activity scope or Lifecycle
- *
- * @property parentJob parent job for the coRoutines started in this scope
  */
 
-open class BaseViewModel(application: Application) :
-    AndroidViewModel(application) {
+abstract class BaseViewModel<MVI_INTENT : MviIntent, VIEW_STATE : MviViewState>(
+    protected val appRxSchedulers: AppRxSchedulers
+) : ViewModel(), MviViewModel<MVI_INTENT, VIEW_STATE> {
+
+    protected val intentsSubject: PublishSubject<MVI_INTENT> = PublishSubject.create()
+
+    protected val statesObservable: Observable<VIEW_STATE> by lazy {
+        compose()
+    }
+
+    protected val compositeDisposable: CompositeDisposable = CompositeDisposable()
+
+    override fun processIntents(intents: Observable<MVI_INTENT>) {
+        compositeDisposable.add(intents.subscribe(intentsSubject::onNext))
+    }
+
+    override fun states() = statesObservable
+
+    abstract fun compose(): Observable<VIEW_STATE>
+
+    override fun onCleared() {
+        compositeDisposable.dispose()
+        super.onCleared()
+    }
+
+
 }

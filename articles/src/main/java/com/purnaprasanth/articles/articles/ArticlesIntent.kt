@@ -9,5 +9,9 @@ import com.purnaprasanth.base.mvi.MviIntent
 
 sealed class ArticlesIntent : MviIntent {
 
-    data class ChangeFilterIntent(val newSection: String) : ArticlesIntent()
+    object InitialIntent : ArticlesIntent()
+
+    data class ChangeFilterIntent(val newFilter: ArticleFiler) : ArticlesIntent()
+
+    data class RefreshArticlesIntent(val newFilter: ArticleFiler) : ArticlesIntent()
 }

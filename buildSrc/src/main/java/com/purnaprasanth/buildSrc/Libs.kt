@@ -51,6 +51,11 @@ object Libs {
         const val rxJavaAdapter = "com.squareup.retrofit2:adapter-rxjava2:${Versions.retrofit}"
     }
 
+    object Stetho {
+        const val core = "com.facebook.stetho:stetho:${Versions.stetho}"
+        const val okhttp = "com.facebook.stetho:stetho-okhttp3:${Versions.stetho}"
+    }
+
     object Dagger {
         const val core = "com.google.dagger:dagger:${Versions.dagger2}"
         const val android = "com.google.dagger:dagger-android:${Versions.dagger2}"
@@ -63,6 +68,11 @@ object Libs {
     object RxJava {
         const val java = "io.reactivex.rxjava2:rxjava:${Versions.rxJava}"
         const val android = "io.reactivex.rxjava2:rxandroid:${Versions.rxAndroid}"
+    }
+
+    object Glide {
+        const val core = "com.github.bumptech.glide:glide:${Versions.glide}"
+        const val compile = "com.github.bumptech.glide:compiler:${Versions.glide}"
     }
 
     object Junit {

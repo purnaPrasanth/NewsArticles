@@ -8,16 +8,20 @@ import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.ViewModelProviders
 import com.purnaprasanth.base.AppRxSchedulers
 import dagger.android.support.DaggerFragment
+import io.reactivex.disposables.CompositeDisposable
 import javax.inject.Inject
 
+
 /**
- * Created by viking_93 on 2019-11-03
+ * Created by purna on 2019-11-09
  **/
 
-abstract class BaseFragment<BINDING : ViewDataBinding>(@LayoutRes val layId: Int) :
-    DaggerFragment() {
+abstract class BaseFragment<BINDING : ViewDataBinding>(
+    @LayoutRes val layId: Int
+) : DaggerFragment() {
 
     private lateinit var _binding: BINDING
 
@@ -30,6 +34,12 @@ abstract class BaseFragment<BINDING : ViewDataBinding>(@LayoutRes val layId: Int
     @Inject
     lateinit var appRxSchedulers: AppRxSchedulers
 
+    protected val viewModelProvider: ViewModelProvider by lazy {
+        ViewModelProviders.of(this, viewModelFactory)
+    }
+
+    private val compositeDisposable = CompositeDisposable()
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -39,6 +49,11 @@ abstract class BaseFragment<BINDING : ViewDataBinding>(@LayoutRes val layId: Int
         _binding.lifecycleOwner = this
         initUI()
         return binding.root
+    }
+
+    override fun onDestroyView() {
+        compositeDisposable.dispose()
+        super.onDestroyView()
     }
 
     abstract fun initUI()

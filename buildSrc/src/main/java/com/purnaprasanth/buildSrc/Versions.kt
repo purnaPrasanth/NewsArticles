@@ -28,8 +28,10 @@ object Versions {
     const val rxJava = "2.2.2"
     const val rxAndroid = "2.1.0"
     const val dagger2 = "2.24"
-    const val okHttp = "3.9.0"
+    const val okHttp = "4.2.2"
     const val retrofit = "2.3.0"
+    const val stetho = "1.5.1"
+    const val glide = "4.10.0"
 
     // testing
     const val jUnit = "4.12"

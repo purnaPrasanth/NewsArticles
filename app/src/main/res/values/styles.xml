@@ -11,6 +11,9 @@
         <item name="android:textAppearanceLarge">@style/AppTheme.Text.Large</item>
         <item name="android:windowBackground">@color/windowBackground</item>
         <item name="android:textAppearanceListItem">@style/AppTheme.Text.ListItem</item>
+        <item name="android:textAppearanceListItemSmall">@style/AppTheme.Text.ListItem.Small</item>
+        <item name="android:spinnerItemStyle">@style/AppTheme.Text.Medium</item>
+        <item name="android:spinnerDropDownItemStyle">@style/AppTheme.Text.Medium</item>
         <item name="android:colorBackground">@color/white</item>
     </style>
 
@@ -27,14 +30,16 @@
     </style>
 
     <style name="AppTheme.Text.Medium" parent="AppTheme.Text">
-        <item name="android:textSize">@dimen/textSizeBig</item>
+        <item name="android:textSize">@dimen/textSizeMedium</item>
     </style>
 
     <style name="AppTheme.Text.Large" parent="AppTheme.Text">
-        <item name="android:textSize">@dimen/textSizeHuge</item>
+        <item name="android:textSize">@dimen/textSizeLarge</item>
     </style>
 
-    <style name="AppTheme.Text.Title" parent="AppTheme.Text.Large">
+    <style name="AppTheme.Text.Title" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/textColorPrimary</item>
+        <item name="android:textSize">@dimen/textSizeTitle</item>
         <item name="android:fontFamily">@font/quicksand_bold</item>
     </style>
 
@@ -48,13 +53,19 @@
 
     <style name="BaseAppTheme.Text.ToolBarTitle" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
         <item name="android:fontFamily">@font/quicksand_bold</item>
-        <item name="android:textSize">@dimen/textSizeHuge</item>
+        <item name="android:textSize">@dimen/textSizeTitle</item>
         <item name="android:textColor">@color/textColorPrimary</item>
     </style>
 
     <style name="AppTheme.Text.ListItem" parent="TextAppearance.AppCompat">
-        <item name="android:fontFamily">@font/roboto_bold</item>
-        <item name="android:textSize">@dimen/textSizeHuge</item>
+        <item name="android:fontFamily">@font/roboto_medium</item>
+        <item name="android:textSize">@dimen/textSize</item>
+        <item name="android:textColor">@color/textColorPrimary</item>
+    </style>
+
+    <style name="AppTheme.Text.ListItem.Small" parent="TextAppearance.AppCompat">
+        <item name="android:fontFamily">@font/roboto</item>
+        <item name="android:textSize">@dimen/textSizeSmall</item>
         <item name="android:textColor">@color/textColorPrimary</item>
     </style>
 

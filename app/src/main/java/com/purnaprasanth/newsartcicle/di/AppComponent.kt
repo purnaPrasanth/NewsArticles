@@ -1,6 +1,9 @@
 package com.purnaprasanth.newsartcicle.di
 
+import com.purna.newsarticles.times.di.TimeModule
 import com.purnaprasanth.newsartcicle.NewsArticlesApplication
+import com.purnaprasanth.newsarticles.data.di.DataMapperBinds
+import com.purnaprasanth.newsarticles.data.di.DataSourceBinds
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjector
@@ -18,7 +21,11 @@ import javax.inject.Singleton
         ActivityModule::class,
         AppModule::class,
         ExecutorModule::class,
-        ViewModelModule::class
+        ViewModelModule::class,
+        NetworkModule::class,
+        DataMapperBinds::class,
+        DataSourceBinds::class,
+        TimeModule::class
     ]
 )
 interface AppComponent : AndroidInjector<NewsArticlesApplication> {

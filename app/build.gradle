@@ -39,9 +39,11 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+
     implementation project(":baseandroid")
     implementation project(":data")
     implementation project(":articles")
+    implementation project(":times")
 
     kapt(Libs.Dagger.compiler)
     kapt(Libs.Dagger.androidSupportCompiler)
@@ -54,7 +56,13 @@ dependencies {
     implementation(Libs.RxJava.android)
     implementation(Libs.RxJava.java)
 
+    implementation(Libs.Glide.core)
+    implementation(Libs.Glide.compile)
+
     kapt(Libs.LifeCycle.compiler)
+
+    implementation(Libs.Stetho.core)
+    implementation(Libs.Stetho.okhttp)
 
     implementation(Libs.Navigation.fragment)
     implementation(Libs.Navigation.ui)
