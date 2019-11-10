@@ -7,15 +7,15 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:paddingStart="@dimen/parent_padding"
-        android:paddingEnd="@dimen/parent_padding">
+        android:orientation="vertical">
 
         <androidx.appcompat.widget.AppCompatSpinner
             android:id="@+id/filter_type"
             android:layout_width="match_parent"
             android:layout_height="@dimen/toolbarHeight"
+            android:layout_marginStart="@dimen/parent_padding"
             android:layout_marginTop="@dimen/parent_padding"
+            android:layout_marginEnd="@dimen/parent_padding"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -25,6 +25,10 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginTop="@dimen/parent_padding_half"
+            android:clipChildren="false"
+            android:clipToPadding="false"
+            android:paddingStart="@dimen/parent_padding"
+            android:paddingEnd="@dimen/parent_padding"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

@@ -1,6 +1,8 @@
 package com.purnaprasanth.articles.articledetail
 
+import android.net.Uri
 import android.os.Bundle
+import androidx.browser.customtabs.CustomTabsIntent
 import com.purnaprasanth.articles.R
 import com.purnaprasanth.articles.databinding.FragmentArticledetailBinding
 import com.purnaprasanth.baseandroid.BaseFragment
@@ -18,12 +20,18 @@ class ArticleDetailFragment :
     }
 
     override fun initUI() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        binding.article = articleDetail
+        binding.link.setOnClickListener {
+            val tabsIntent = CustomTabsIntent.Builder().apply {
+                setShowTitle(true)
+            }.build()
+            tabsIntent.launchUrl(requireContext(), Uri.parse(articleDetail.articleLink))
+        }
     }
 
     companion object {
 
-        private const val BUNDLE_ARTICLE_DETAIL_FRAGMENT = "BUNDLE_ARTICLE_DETAIL_FRAGMENT"
+        const val BUNDLE_ARTICLE_DETAIL_FRAGMENT = "BUNDLE_ARTICLE_DETAIL_FRAGMENT"
 
         fun newFragment(articleDetail: ArticleDetail) = ArticleDetailFragment().apply {
             val bundle = Bundle().apply {

@@ -6,8 +6,10 @@ import android.widget.ArrayAdapter
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.purnaprasanth.articles.R
 import com.purnaprasanth.articles.databinding.FragmentArticlesBinding
+import com.purnaprasanth.articles.navigation.IArticlesNavigation
 import com.purnaprasanth.base.mvi.MviView
 import com.purnaprasanth.baseandroid.BaseMviFragment
+import com.purnaprasanth.newsarticles.data.model.ArticleDetail
 import io.reactivex.Observable
 import io.reactivex.subjects.PublishSubject
 import javax.inject.Inject
@@ -24,6 +26,7 @@ class ArticlesFragment :
 
     private val refreshArticlesIntent =
         PublishSubject.create<ArticlesIntent.RefreshArticlesIntent>()
+
     private val changeFilterIntents =
         PublishSubject.create<ArticlesIntent.ChangeFilterIntent>().apply {
             startWith(ArticlesIntent.ChangeFilterIntent(ArticleFiler.Science))
@@ -31,6 +34,9 @@ class ArticlesFragment :
 
     @Inject
     lateinit var adapter: ArticlesRvAdapter
+
+    @Inject
+    lateinit var articlesNavigation: IArticlesNavigation
 
     private val spinnerAdapter by lazy {
         ArrayAdapter(
@@ -50,6 +56,10 @@ class ArticlesFragment :
     override fun initUI() {
         binding.articlesList.layoutManager = LinearLayoutManager(requireContext())
         binding.articlesList.adapter = adapter
+        adapter.onItemClickListener =
+            AdapterView.OnItemClickListener { _, _, position, _ ->
+                articlesNavigation.viewArticleDetails(adapter.getItem(position))
+            }
         binding.filterType.adapter = spinnerAdapter
         binding.filterType.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onNothingSelected(parent: AdapterView<*>?) {

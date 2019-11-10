@@ -44,6 +44,10 @@ object Libs {
         const val mockWebServer = "com.squareup.okhttp3:mockwebserver:${Versions.okHttp}"
     }
 
+    object Browser {
+        const val browser = "androidx.browser:browser:${Versions.browser}"
+    }
+
     object Retrofit {
         const val core = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
         const val gson = "com.squareup.retrofit2:converter-gson:${Versions.retrofit}"

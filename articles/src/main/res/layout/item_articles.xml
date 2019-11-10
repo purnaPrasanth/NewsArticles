@@ -16,7 +16,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/parent_padding_half"
         android:layout_marginBottom="@dimen/parent_padding_half"
-        android:background="#ffffff"
+        android:background="@drawable/background_articles"
+        android:elevation="@dimen/elevation"
         android:padding="@dimen/parent_padding">
 
         <ImageView

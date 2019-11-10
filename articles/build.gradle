@@ -39,6 +39,7 @@ dependencies {
     implementation project(":data")
 
     implementation(Libs.Androidx.constraintLayout)
+    implementation(Libs.Browser.browser)
 
     kapt(Libs.Dagger.compiler)
     kapt(Libs.Dagger.androidSupportCompiler)

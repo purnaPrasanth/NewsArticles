@@ -5,6 +5,7 @@
         <item name="android:windowLightStatusBar">true</item>
         <item name="android:titleTextAppearance">@style/AppTheme.Text.Title</item>
         <item name="android:toolbarStyle">@style/AppTheme.v21.Toolbar</item>
+        <item name="android:colorBackground">@color/white</item>
     </style>
 
 </resources>

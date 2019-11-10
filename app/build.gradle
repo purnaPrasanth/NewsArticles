@@ -56,13 +56,13 @@ dependencies {
     implementation(Libs.RxJava.android)
     implementation(Libs.RxJava.java)
 
+    api(Libs.Navigation.fragment)
+    api(Libs.Navigation.ui)
+
     kapt(Libs.LifeCycle.compiler)
 
     implementation(Libs.Stetho.core)
     implementation(Libs.Stetho.okhttp)
-
-    implementation(Libs.Navigation.fragment)
-    implementation(Libs.Navigation.ui)
 
     testImplementation(Libs.Junit.jUnit)
     androidTestImplementation(Libs.Junit.atslJunit)

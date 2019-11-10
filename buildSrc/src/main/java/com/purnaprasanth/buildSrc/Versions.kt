@@ -16,13 +16,14 @@ object Versions {
     // Plugin
     const val pluginGradle = "3.5.2"
     const val kotlin = "1.3.50"
-    
+
     // Androidx
     const val appCompat = "1.1.0"
     const val constraintLayout = "1.1.3"
     const val recycleView = "1.0.0"
     const val lifecycle = "2.1.0"
     const val navigation = "2.1.0"
+    const val browser = "1.0.0"
 
     // Third Party
     const val rxJava = "2.2.2"

@@ -14,75 +14,96 @@
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:clipChildren="false"
+            android:clipToPadding="false"
+            android:paddingBottom="@dimen/parent_padding">
 
             <ImageView
                 android:id="@+id/cover_image"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
+                android:scaleType="centerCrop"
+                app:articleImage="@{article.coverImage}"
                 app:layout_constraintDimensionRatio="H;1,2"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
+            <com.purnaprasanth.baseandroid.TextWithHeaderView
                 android:id="@+id/author_tv"
-                style="?android:textAppearanceMedium"
+                style="?android:textAppearanceSmall"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/parent_padding"
                 android:layout_marginTop="@dimen/parent_padding_half"
                 android:layout_marginEnd="@dimen/parent_padding"
-                android:text="@{article.authorName}"
+                android:background="@drawable/background_articles"
+                android:elevation="@dimen/elevation"
+                android:padding="@dimen/parent_padding"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/cover_image"
+                app:text="@{article.authorName}"
+                app:title='@{"Author"}'
                 tools:text="Author" />
 
-            <TextView
+            <com.purnaprasanth.baseandroid.TextWithHeaderView
                 android:id="@+id/title_tv"
-                style="?android:textAppearanceMedium"
+                style="?android:textAppearanceSmall"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/parent_padding"
                 android:layout_marginTop="@dimen/parent_padding_half"
                 android:layout_marginEnd="@dimen/parent_padding"
-                android:text="@{article.title}"
+                android:background="@drawable/background_articles"
+                android:elevation="@dimen/elevation"
+                android:padding="@dimen/parent_padding"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/author_tv"
+                app:text="@{article.title}"
+                app:title='@{"Title"}'
                 tools:text="Title" />
 
-            <TextView
+            <com.purnaprasanth.baseandroid.TextWithHeaderView
                 android:id="@+id/abstract_tv"
-                style="?android:textAppearanceMedium"
+                style="?android:textAppearanceSmall"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/parent_padding"
                 android:layout_marginTop="@dimen/parent_padding_half"
                 android:layout_marginEnd="@dimen/parent_padding"
-                android:text="@{article.abstract}"
+                android:background="@drawable/background_articles"
+                android:elevation="@dimen/elevation"
+                android:padding="@dimen/parent_padding"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/title_tv"
+                app:text="@{article.abstract}"
+                app:title='@{"Abstract"}'
                 tools:text="Abstract" />
 
-            <TextView
+            <com.purnaprasanth.baseandroid.TextWithHeaderView
                 android:id="@+id/link"
-                style="?android:textAppearanceMedium"
+                style="?android:textAppearanceSmall"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/parent_padding"
                 android:layout_marginTop="@dimen/parent_padding_half"
                 android:layout_marginEnd="@dimen/parent_padding"
-                android:text="@{article.articleLink}"
+                android:background="@drawable/background_articles"
+                android:elevation="@dimen/elevation"
+                android:padding="@dimen/parent_padding"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/abstract_tv"
+                app:text="@{article.articleLink}"
+                app:title='@{"Link"}'
                 tools:text="Author" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
