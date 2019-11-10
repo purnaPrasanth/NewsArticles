@@ -47,6 +47,8 @@ dependencies {
     api(Libs.Dagger.androidSupport)
     kapt(Libs.Dagger.androidSupportCompiler)
 
+    api(Libs.Glide.core)
+
     api(Libs.Androidx.constraintLayout)
     api(Libs.Androidx.appCompat)
     api(Libs.Androidx.recyclerview)

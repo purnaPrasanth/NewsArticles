@@ -56,9 +56,6 @@ dependencies {
     implementation(Libs.RxJava.android)
     implementation(Libs.RxJava.java)
 
-    implementation(Libs.Glide.core)
-    implementation(Libs.Glide.compile)
-
     kapt(Libs.LifeCycle.compiler)
 
     implementation(Libs.Stetho.core)
