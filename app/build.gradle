@@ -59,6 +59,8 @@ dependencies {
     api(Libs.Navigation.fragment)
     api(Libs.Navigation.ui)
 
+    implementation(Libs.Room.runtime)
+
     kapt(Libs.LifeCycle.compiler)
 
     implementation(Libs.Stetho.core)

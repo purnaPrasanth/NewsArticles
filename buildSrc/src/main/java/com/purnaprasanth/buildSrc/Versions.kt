@@ -24,6 +24,7 @@ object Versions {
     const val lifecycle = "2.1.0"
     const val navigation = "2.1.0"
     const val browser = "1.0.0"
+    const val room = "2.2.1"
 
     // Third Party
     const val rxJava = "2.2.2"

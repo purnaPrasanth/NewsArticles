@@ -7,9 +7,11 @@ import com.purnaprasanth.articles.articles.ArticlesInteractor
 import com.purnaprasanth.articles.articles.ArticlesResult
 import com.purnaprasanth.base.annotation.App
 import com.purnaprasanth.base.mvi.MviInterator
+import com.purnaprasanth.baseandroid.ConnectivityStatus
 import com.purnaprasanth.baseandroid.appinitializers.AppInitializer
 import com.purnaprasanth.newsartcicle.NewsArticlesApplication
 import com.purnaprasanth.newsartcicle.appinitializers.StethoInitializer
+import com.purnaprasanth.newsartcicle.util.DetectConnectivity
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoSet
@@ -28,6 +30,8 @@ abstract class AppModuleBinds {
     @App
     abstract fun bindApplicationContext(application: NewsArticlesApplication): Context
 
+    @Binds
+    abstract fun bindNetworkConnectivity(detectConnectivity: DetectConnectivity): ConnectivityStatus
 
     @Binds
     abstract fun bindArticlesInteractor(articlesInteractor: ArticlesInteractor): MviInterator<ArticlesAction, ArticlesResult>

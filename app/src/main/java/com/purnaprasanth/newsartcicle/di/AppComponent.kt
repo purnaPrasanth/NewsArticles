@@ -25,7 +25,8 @@ import javax.inject.Singleton
         NetworkModule::class,
         DataMapperBinds::class,
         DataSourceBinds::class,
-        TimeModule::class
+        TimeModule::class,
+        DatabaseModule::class
     ]
 )
 interface AppComponent : AndroidInjector<NewsArticlesApplication> {

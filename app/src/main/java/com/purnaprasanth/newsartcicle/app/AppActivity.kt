@@ -1,9 +1,7 @@
 package com.purnaprasanth.newsartcicle.app
 
-import android.os.Bundle
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
-import com.purnaprasanth.articles.articledetail.ArticleDetailFragment
 import com.purnaprasanth.articles.navigation.IArticlesNavigation
 import com.purnaprasanth.baseandroid.BaseActivity
 import com.purnaprasanth.newsartcicle.R
@@ -18,10 +16,10 @@ class AppActivity : BaseActivity<ActivityAppBinding>(R.layout.activity_app), IAr
         get() = "AppActivity"
 
     override fun viewArticleDetails(articleDetail: ArticleDetail) {
-        val bundle = Bundle().apply {
+        /*val bundle = Bundle().apply {
             putParcelable(ArticleDetailFragment.BUNDLE_ARTICLE_DETAIL_FRAGMENT, articleDetail)
         }
-        navController.navigate(R.id.navigate_to_article_detail, bundle)
+        navController.navigate(R.id.navigate_to_article_detail, bundle)*/
     }
 
     override fun initUI() {

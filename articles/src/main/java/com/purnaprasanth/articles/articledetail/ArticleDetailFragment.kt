@@ -1,7 +1,6 @@
 package com.purnaprasanth.articles.articledetail
 
 import android.net.Uri
-import android.os.Bundle
 import androidx.browser.customtabs.CustomTabsIntent
 import com.purnaprasanth.articles.R
 import com.purnaprasanth.articles.databinding.FragmentArticledetailBinding
@@ -15,7 +14,7 @@ import com.purnaprasanth.newsarticles.data.model.ArticleDetail
 class ArticleDetailFragment :
     BaseFragment<FragmentArticledetailBinding>(R.layout.fragment_articledetail) {
 
-    val articleDetail: ArticleDetail by lazy {
+    private val articleDetail: ArticleDetail by lazy {
         arguments!!.getParcelable<ArticleDetail>(BUNDLE_ARTICLE_DETAIL_FRAGMENT) as ArticleDetail
     }
 
@@ -32,11 +31,5 @@ class ArticleDetailFragment :
     companion object {
 
         const val BUNDLE_ARTICLE_DETAIL_FRAGMENT = "BUNDLE_ARTICLE_DETAIL_FRAGMENT"
-
-        fun newFragment(articleDetail: ArticleDetail) = ArticleDetailFragment().apply {
-            val bundle = Bundle().apply {
-                putParcelable(BUNDLE_ARTICLE_DETAIL_FRAGMENT, articleDetail)
-            }
-        }
     }
 }

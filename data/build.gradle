@@ -4,6 +4,8 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 
+apply plugin: 'kotlin-kapt'
+
 import com.purnaprasanth.buildSrc.Libs
 import com.purnaprasanth.buildSrc.Versions
 
@@ -31,7 +33,6 @@ android {
     androidExtensions {
         experimental = true
     }
-
 }
 
 dependencies {
@@ -39,6 +40,10 @@ dependencies {
 
     implementation project(":baseandroid")
     implementation project(":times")
+
+    implementation(Libs.Room.runtime)
+    kapt(Libs.Room.compiler)
+    implementation(Libs.Room.roomRxJava)
 
     testImplementation(Libs.Junit.jUnit)
     androidTestImplementation(Libs.Junit.atslJunit)

@@ -5,6 +5,7 @@ import com.purna.newsarticles.times.di.TimesModuleBinds
 import com.purnaprasanth.base.annotation.Local
 import com.purnaprasanth.base.annotation.Times
 import com.purnaprasanth.newsarticles.data.datasources.IArticleDataSource
+import com.purnaprasanth.newsarticles.data.datasources.LocalArticleDataSource
 import com.purnaprasanth.newsarticles.data.datasources.RemoteArticleDataSource
 import dagger.Binds
 import dagger.Module
@@ -21,4 +22,8 @@ abstract class DataSourceBinds {
     @Binds
     @Times
     abstract fun bindRemoteDataSource(remoteArticleDataSource: RemoteArticleDataSource): IArticleDataSource
+
+    @Binds
+    @Local
+    abstract fun bindLocalDatSource(localArticleDataSource: LocalArticleDataSource): IArticleDataSource
 }

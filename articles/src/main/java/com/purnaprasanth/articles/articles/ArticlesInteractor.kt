@@ -2,6 +2,7 @@ package com.purnaprasanth.articles.articles
 
 import com.purnaprasanth.base.AppRxSchedulers
 import com.purnaprasanth.base.mvi.MviInterator
+import com.purnaprasanth.baseandroid.ConnectivityStatus
 import com.purnaprasanth.newsarticles.data.repo.ArticleRepo
 import io.reactivex.Observable
 import io.reactivex.ObservableTransformer
@@ -15,13 +16,14 @@ import javax.inject.Singleton
 @Singleton
 class ArticlesInteractor @Inject constructor(
     private val articleRepo: ArticleRepo,
-    private val appRxSchedulers: AppRxSchedulers
+    private val appRxSchedulers: AppRxSchedulers,
+    private val connectivityStatus: ConnectivityStatus
 ) : MviInterator<ArticlesAction, ArticlesResult> {
 
     private val loadArticlesProcessor =
         ObservableTransformer<ArticlesAction.LoadArticlesAction, ArticlesResult.LoadArticlesResult> { actions ->
             actions.flatMap { action ->
-                articleRepo.getArticles(action.filter.value, true)
+                articleRepo.getArticles(action.filter.value, connectivityStatus.isConnected())
                     // Wrap returned data into an immutable object
                     .map { articles ->
                         ArticlesResult.LoadArticlesResult.Success(
@@ -50,7 +52,7 @@ class ArticlesInteractor @Inject constructor(
     private val refreshArticlesProcessor =
         ObservableTransformer<ArticlesAction.RefreshArticlesAction, ArticlesResult.RefreshArticlesResult> { actions ->
             actions.flatMap { action ->
-                articleRepo.getArticles(action.filter.value, true)
+                articleRepo.getArticles(action.filter.value, connectivityStatus.isConnected())
                     // Wrap returned data into an immutable object
                     .map { articles ->
                         ArticlesResult.RefreshArticlesResult.Success(
